@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-light" [ngClass]="{ 'bg-primary': !isDarkMode, 'bg-dark': isDarkMode }">
+  <a class="navbar-brand text-white" href="#">Book Store</a>
+</nav>
+
+<div class="container mt-4">
+  <div class="rounded-lg card" [ngClass]="{ 'dark-mode': isDarkMode }">
+    <div class="card-body">
+      <h1 class="card-title" [ngClass]="{ 'text-blue-600': !isDarkMode, 'text-dark': isDarkMode }">LMS</h1>
+      <p class="card-text" [ngClass]="{ 'text-blue-600': !isDarkMode, 'text-dark': isDarkMode }">
+        This is a Library Management System made using MEAN Stack.
+      </p>
+
+      <div class="mb-4">
+        <button (click)="navigateToBooks()" class="btn" [ngClass]="{ 'btn-primary-light': !isDarkMode, 'btn-primary-dark': isDarkMode }">Books</button>
+      </div>
+      <div class="mb-4">
+        <button (click)="navigateToAddBook()" class="btn" [ngClass]="{ 'btn-primary-light': !isDarkMode, 'btn-primary-dark': isDarkMode }">Add Book</button>
+      </div>
+      <div class="mb-4">
+        <button (click)="toggleDarkMode()" class="btn" [ngClass]="{ 'btn-primary-light': !isDarkMode, 'btn-primary-dark': isDarkMode }">
+          Toggle Dark Mode
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

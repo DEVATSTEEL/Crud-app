@@ -1,0 +1,62 @@
+<html>
+
+<head>
+  <title>Book Form</title>
+</head>
+
+<body class="bg-gradient-to-b from-blue-300 to-blue-500 min-h-screen flex items-center justify-center">
+  <div class="max-w-md rounded-lg p-8 shadow-md bg-white fox-form-container">
+    <form [formGroup]="Bookformcomponent" (ngSubmit)="onSubmit()" class="fox-form">
+      <div class="form-group mb-4">
+        <label for="name" class="form-label">Book Name:</label>
+        <input
+          type="text"
+          id="name"
+          formControlName="name"
+          class="form-control border border-yellow-400 rounded w-full p-2"
+          required
+          [ngModel]="Bookformcomponent.value.name"
+          (input)="highlightText('name', Bookformcomponent.value.name)"
+          [ngClass]="{ 'highlighted': highlightedText['name'] }"
+        >
+      </div>
+
+      <div class="form-group mb-4">
+        <label for="description" class="form-label">Book Description:</label>
+        <textarea
+          id="description"
+          formControlName="description"
+          class="form-control border border-yellow-400 rounded w-full p-2"
+          [ngModel]="Bookformcomponent.value.description"
+          (input)="highlightText('description', Bookformcomponent.value.description)"
+          [ngClass]="{ 'highlighted': highlightedText['description'] }"
+        ></textarea>
+      </div>
+
+      <div class="form-group mb-4">
+        <label for="price" class="form-label">Book Price:</label>
+        <input
+          type="number"
+          id="price"
+          formControlName="price"
+          class="form-control border border-yellow-400 rounded w-full p-2"
+          required
+          [ngModel]="Bookformcomponent.value.price"
+          (input)="highlightText('price', Bookformcomponent.value.price)"
+          [ngClass]="{ 'highlighted': highlightedText['price'] }"
+        >
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="fox-button bg-yellow-500 text-white font-bold py-2 px-4 rounded"
+          [disabled]="!Bookformcomponent.valid">Submit</button>
+      </div>
+    </form>
+
+    <div class="form-group" *ngIf="formSubmitted">
+      <p class="success-message">Success</p>
+    </div>
+  </div>
+</body>
+
+</html>
